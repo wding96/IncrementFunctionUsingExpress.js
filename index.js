@@ -18,9 +18,11 @@ app.listen(port, function(){
 
 // Create a message 
 app.post('/', (req, res) => {
-    // const value = req.body.value;
     const n = { value : parseInt(req.body.value) + 1};
     return res.send(n);
+    res.json(function(n){
+                return n+1;
+            })
 });
 // curl code to run: 
 // curl -X POST -H "Content-Type:application/json" http://localhost:3001/ -d '{"value":"4"}'
